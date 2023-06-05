@@ -29,11 +29,13 @@ import java.util.Map;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FacilityController {
   private final FacilityService facilityService;
+  private final LocationService locationService;
 
   //시설 추가
   @PostMapping("/facilities")
   public ResponseEntity addFacility(@Valid @RequestBody AddFacilityDTO dto) { // name, address, tel, fm_name
     Long facilityId = facilityService.addFacility(dto);
+    locationService.changeSupport(dto.getName(), dto.getAddress(), true);
     Map<String, Long> map = new HashMap<>();
     map.put("facility_id", facilityId);
 
@@ -46,9 +48,10 @@ public class FacilityController {
     Long facilityId = facility.get("facility_id");
     if (facilityId == null)
       throw new FacilityException("FacilityController 시설 삭제: facility_id가 null. 사용자의 잘못된 입력");
+    FacilityInfoDto info = facilityService.getInfo(facilityId);
 
     facilityService.deleteFacility(facilityId);
-
+    locationService.changeSupport(info.getName(), info.getAddress(), false);
     return ResponseEntity.status(HttpStatus.OK).build();
   }
 

@@ -43,10 +43,4 @@ public class LocationController {
         return ResponseEntity.status(HttpStatus.OK).body(responseList);
     }
 
-    @PostMapping("/change")
-    public ResponseEntity changeSupport(@RequestBody ChangeDTO changeDTO) {
-        locationService.changeSupport(changeDTO);
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
 }

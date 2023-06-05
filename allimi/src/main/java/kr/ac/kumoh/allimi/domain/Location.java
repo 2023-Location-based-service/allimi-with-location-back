@@ -29,7 +29,7 @@ public class Location {
         this.address = address;
     }
 
-    public void changeSupport() {
-        this.support = true;
+    public void changeSupport(Boolean tf) {
+        this.support = tf;
     }
 }

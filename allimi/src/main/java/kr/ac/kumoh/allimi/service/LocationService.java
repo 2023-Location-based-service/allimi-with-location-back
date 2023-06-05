@@ -119,12 +119,12 @@ public class LocationService {
         return searchList;
     }
 
-    public void changeSupport(ChangeDTO dto) {
-        Location location = locationRepository.findByNameAndAddress(dto.getName(), dto.getAddress())
+    public void changeSupport(String name, String address, Boolean tf) {
+        Location location = locationRepository.findByNameAndAddress(name, address)
                 .orElse(null);
 
         if (location != null)
-            location.changeSupport();
-
+            location.changeSupport(tf);
     }
+
 }
