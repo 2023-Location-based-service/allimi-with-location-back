@@ -21,7 +21,6 @@ import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/v4")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserController {
@@ -44,14 +43,6 @@ public class UserController {
 
     return ResponseEntity.status(HttpStatus.OK).body(responseLogin);  // user_id, user_role, user_name, phone_num, login_id;
   }
-
-//  //전체 user조회 - 관리자용
-//  @GetMapping("/users")
-//  public ResponseEntity getAllUser() throws Exception {
-//    List<UserListAdminDTO> dtos = userService.getAllUser();
-//
-//    return ResponseEntity.status(HttpStatus.OK).body(dtos);
-//  }
 
   //회원 탈퇴
   @DeleteMapping("/users")
@@ -102,13 +93,6 @@ public class UserController {
 
     return ResponseEntity.status(HttpStatus.OK).body(dtos);
   }
-
-//
-//  @PostMapping("/logout") // 로그아웃 - 그냥 프론트 단에서 처리해도 될듯
-//  public ResponseEntity logout(@RequestBody Map<String, Long> user) { //user_id
-//    // TODO: 로그아웃
-//    return ResponseEntity.status(HttpStatus.OK).build();
-//  }
 
 }
 

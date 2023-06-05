@@ -5,7 +5,6 @@ import kr.ac.kumoh.allimi.controller.response.VisitResponse;
 import kr.ac.kumoh.allimi.dto.visit.*;
 import kr.ac.kumoh.allimi.exception.InputException;
 import kr.ac.kumoh.allimi.exception.VisitException;
-import kr.ac.kumoh.allimi.exception.user.UserException;
 import kr.ac.kumoh.allimi.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +18,6 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v4")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class VisitController {
     private final VisitService visitService;

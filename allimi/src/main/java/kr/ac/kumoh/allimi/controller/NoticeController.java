@@ -18,7 +18,6 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/v4")
 @Slf4j
 @RestController
 public class NoticeController {

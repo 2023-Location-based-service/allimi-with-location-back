@@ -9,7 +9,6 @@ import kr.ac.kumoh.allimi.dto.nhresident.NHResidentEditDTO;
 import kr.ac.kumoh.allimi.dto.nhresident.NHResidentResponse;
 import kr.ac.kumoh.allimi.exception.FacilityException;
 import kr.ac.kumoh.allimi.exception.InputException;
-import kr.ac.kumoh.allimi.exception.DataAlreadyExistsException;
 import kr.ac.kumoh.allimi.exception.user.UserException;
 import kr.ac.kumoh.allimi.service.NHResidentService;
 import kr.ac.kumoh.allimi.service.UserService;
@@ -28,7 +27,6 @@ import java.util.Map;
 //시설장, 직원도 NHResident 추가가 필요함. role부여를 위해
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/v4")
 @Slf4j
 @RestController
 public class NHResidentController {
@@ -38,15 +36,6 @@ public class NHResidentController {
   //새 입소자 추가 or 직원, 시설장 등록
   @PostMapping("/nhResidents")
   public ResponseEntity addNHResident(@Valid @RequestBody NHResidentDTO dto) throws Exception { // user_id, facility_id, resident_name, birth, user_role, health_info;
-    // 이미 직원 등록 -> 더이상 등록 X
-    // 이미 입소자 등록 -> 추가 입소자 등록 O
-
-//    boolean hasData = nhResidentService.findByFacilityAndUserAndUserRoleExists(dto.getFacility_id(), dto.getUser_id(), dto.getUser_role());
-//    입소자 중복 추가 방지용 - 해당시설에 해당 user가 해당 역할로 등록되어있는지 확인
-//    if (hasData) {
-//      log.info("NHResident 추가: 중복된 요청. 이미 있는 입소자임");
-//      throw new DataAlreadyExistsException("이미 존재하는 입소자");
-//    }
 
     Long residentId = nhResidentService.addNHResident(dto);
 
@@ -153,18 +142,6 @@ public class NHResidentController {
 
     return ResponseEntity.status(HttpStatus.OK).body(responseList);
   }
-
-
-//  // 사용자가 등록한 요양원 목록 - 어디에 쓰는건지 잘 모르겠어서 일단 주석: 사용자의 입소자 목록을 출력하면 되지않나? "/nhResidents/users/{user_id}"
-//  @GetMapping("/nhResidents/facility/{user_id}/list")
-//  public ResponseEntity nhResidentWithFacilityList(@PathVariable Long user_id) throws Exception {
-//    if (user_id == null)
-//      throw new InputException("NHResidentController 사용자가 등록한 요양원 목록: user_id가 null로 들어옴");
-//
-//    List<NHResidentResponse> nhResidentResponses = userService.getNHResidentsWithFacility(user_id);
-//
-//    return ResponseEntity.status(HttpStatus.OK).body(new ResponseResidentList(nhResidentResponses.size(), nhResidentResponses));
-//  }
 
 }
 

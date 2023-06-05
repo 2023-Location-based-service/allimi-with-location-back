@@ -5,7 +5,6 @@ import kr.ac.kumoh.allimi.dto.letter.LetterEditDto;
 import kr.ac.kumoh.allimi.dto.letter.LetterListDTO;
 import kr.ac.kumoh.allimi.dto.letter.LetterWriteDto;
 import kr.ac.kumoh.allimi.exception.InputException;
-import kr.ac.kumoh.allimi.exception.NHResidentException;
 import kr.ac.kumoh.allimi.service.LetterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +18,6 @@ import java.util.Map;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
-@RequestMapping("/v4")
 @Slf4j
 @RestController
 public class LetterController {
@@ -29,22 +27,6 @@ public class LetterController {
   @PostMapping(value = "/letters")  // resident_id(글 쓰는 사람), contents
   public ResponseEntity letterWrite(@Valid @RequestBody LetterWriteDto dto) throws Exception {
     Long letterId = letterService.write(dto);
-
-    Map<String, Long> map = new HashMap<>();
-    map.put("letter_id", letterId);
-
-    return ResponseEntity.status(HttpStatus.OK).body(map);
-  }
-
-  // 읽음 표시 - 안씀
-  @PostMapping("/letters/read")
-  public ResponseEntity readCheck(@RequestBody Map<String, Long> info) throws Exception { // resident_id, letter_id
-    Long residentId = info.get("resident_id");
-    Long letterId = info.get("letter_id");
-    if (residentId == null || letterId == null)
-      throw new InputException("LetterController 한마디 읽기: user_id 또는 letter_id가 null. 사용자의 잘못된 입력");
-
-    letterService.readCheck(residentId, letterId);
 
     Map<String, Long> map = new HashMap<>();
     map.put("letter_id", letterId);

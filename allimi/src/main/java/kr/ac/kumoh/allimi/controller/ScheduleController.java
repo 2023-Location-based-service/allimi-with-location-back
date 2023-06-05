@@ -19,7 +19,6 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v4")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ScheduleController {
   private final ScheduleService scheduleService;

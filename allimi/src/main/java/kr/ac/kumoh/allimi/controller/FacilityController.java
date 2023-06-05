@@ -25,7 +25,6 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/v4")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FacilityController {
   private final FacilityService facilityService;

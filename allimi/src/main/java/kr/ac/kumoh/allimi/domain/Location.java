@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "nhinfo")
+@Table(name = "facilityInfo")
 public class Location {
 
     @Id
