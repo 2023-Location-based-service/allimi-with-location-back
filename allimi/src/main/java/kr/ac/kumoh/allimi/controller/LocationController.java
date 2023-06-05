@@ -60,14 +60,14 @@ public class LocationController {
         return ResponseEntity.status(HttpStatus.OK).body(responseList);
     }
 
-    @PostMapping("/change")
-    public ResponseEntity changeSupport(@RequestBody ChangeDTO changeDTO) {
-        try {
-            locationService.changeSupport(changeDTO);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
+//    @PostMapping("/change")
+//    public ResponseEntity changeSupport(@RequestBody ChangeDTO changeDTO) {
+//        try {
+//            locationService.changeSupport(changeDTO);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
 }

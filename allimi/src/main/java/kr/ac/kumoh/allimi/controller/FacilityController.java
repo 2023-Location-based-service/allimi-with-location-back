@@ -9,6 +9,7 @@ import kr.ac.kumoh.allimi.dto.facility.FacilityInfoDto;
 import kr.ac.kumoh.allimi.exception.FacilityException;
 import kr.ac.kumoh.allimi.exception.InputException;
 import kr.ac.kumoh.allimi.service.FacilityService;
+import kr.ac.kumoh.allimi.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -28,11 +29,14 @@ import java.util.Map;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FacilityController {
   private final FacilityService facilityService;
+  private final LocationService locationService;
 
   //시설 추가
   @PostMapping("/facilities")
   public ResponseEntity addFacility(@Valid @RequestBody AddFacilityDTO dto) { // name, address, tel, fm_name
     Long facilityId = facilityService.addFacility(dto);
+    locationService.changeSupport(dto.getName(), dto.getAddress());
+
     Map<String, Long> map = new HashMap<>();
     map.put("facility_id", facilityId);
 

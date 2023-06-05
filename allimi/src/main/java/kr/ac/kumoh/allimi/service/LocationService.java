@@ -120,8 +120,8 @@ public class LocationService {
         return searchList;
     }
 
-    public void changeSupport(ChangeDTO changeDTO) {
-        Location location = locationRepository.findByNameContainingOrAddressContaining(changeDTO.getName(), changeDTO.getAddress())
+    public void changeSupport(String name, String address) {
+        Location location = locationRepository.findByNameAndAddress(name, address)
                 .orElse(null);
 
         if (location != null)
