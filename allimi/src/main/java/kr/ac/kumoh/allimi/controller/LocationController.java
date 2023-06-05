@@ -22,52 +22,31 @@ public class LocationController {
     private final LocationService locationService;
 
     @GetMapping("/save")
-    public ResponseEntity saveLatLng() {
-        try {
-            locationService.save();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity saveLatLng() throws Exception {
+        locationService.save();
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PostMapping("/find")
-    public ResponseEntity findNH(@RequestBody RequestDTO requestDTO) {
-        List<ResponseDTO> responseList = new ArrayList<>();
-
-        try {
-            responseList = locationService.getInfo(requestDTO.getCity(), requestDTO.getRegion());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public ResponseEntity findNH(@RequestBody RequestDTO requestDTO) throws Exception {
+        List<ResponseDTO> responseList = locationService.getInfo(requestDTO.getCity(), requestDTO.getRegion());
 
         return ResponseEntity.status(HttpStatus.OK).body(responseList);
     }
 
     @PostMapping("/search")
-    public ResponseEntity searchNH(@RequestBody Map<String, String> search) {
+    public ResponseEntity searchNH(@RequestBody Map<String, String> search) throws Exception {
         String searchWord = search.get("search_word");
-        List<ResponseDTO> responseList = new ArrayList<>();
-
-        try {
-            responseList = locationService.getSearch(searchWord);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<ResponseDTO> responseList = locationService.getSearch(searchWord);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseList);
     }
 
-//    @PostMapping("/change")
-//    public ResponseEntity changeSupport(@RequestBody ChangeDTO changeDTO) {
-//        try {
-//            locationService.changeSupport(changeDTO);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return ResponseEntity.status(HttpStatus.OK).build();
-//    }
+    @PostMapping("/change")
+    public ResponseEntity changeSupport(@RequestBody ChangeDTO changeDTO) {
+        locationService.changeSupport(changeDTO);
+
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

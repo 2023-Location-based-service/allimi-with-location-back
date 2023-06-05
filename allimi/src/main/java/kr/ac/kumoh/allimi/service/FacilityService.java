@@ -22,12 +22,6 @@ import java.util.NoSuchElementException;
 @Transactional
 public class FacilityService {
   private final FacilityRepository facilityRepository;
-//  private final NHResidentRepository nhResidentRepository;
-//  private final InvitationRepository invitationRepository;
-//  private final LetterRepository letterRepository;
-//  private final NoticeRepository noticeRepository;
-//  private final VisitRepository visitRepository;
-//  private final AllNoticeRepository allNoticeRepository;
 
   public Long addFacility(AddFacilityDTO dto){ // name, address, tel, fm_name
     Facility facility = Facility.makeFacility(dto.getName(), dto.getAddress(), dto.getTel(), dto.getFm_name());

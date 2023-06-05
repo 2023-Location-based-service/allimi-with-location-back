@@ -125,4 +125,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).build(); // 413
     }
 
+    @ExceptionHandler(LocationException.class)
+    protected ResponseEntity handleLocationException(LocationException e) {
+        log.info("LocationException={}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 }

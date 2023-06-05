@@ -29,14 +29,11 @@ import java.util.Map;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FacilityController {
   private final FacilityService facilityService;
-  private final LocationService locationService;
 
   //시설 추가
   @PostMapping("/facilities")
   public ResponseEntity addFacility(@Valid @RequestBody AddFacilityDTO dto) { // name, address, tel, fm_name
     Long facilityId = facilityService.addFacility(dto);
-    locationService.changeSupport(dto.getName(), dto.getAddress());
-
     Map<String, Long> map = new HashMap<>();
     map.put("facility_id", facilityId);
 

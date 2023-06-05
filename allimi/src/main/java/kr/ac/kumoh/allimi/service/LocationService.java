@@ -5,6 +5,7 @@ import kr.ac.kumoh.allimi.domain.Location;
 import kr.ac.kumoh.allimi.dto.location.ChangeDTO;
 import kr.ac.kumoh.allimi.dto.location.ResponseDTO;
 import kr.ac.kumoh.allimi.dto.location.SaveDTO;
+import kr.ac.kumoh.allimi.exception.LocationException;
 import kr.ac.kumoh.allimi.repository.LocationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +38,6 @@ public class LocationService {
             int idx = address.indexOf('(');
             if (idx != -1)
                 address = address.substring(0, idx);
-//            SaveDTO saveDTO = getGeoDataByAddress(location.getAddress());
             SaveDTO saveDTO = getGeoDataByAddress(address);
             location.saveLatLng(saveDTO.getLat(), saveDTO.getLng(), saveDTO.getRegion(), address);
         }
@@ -74,7 +74,6 @@ public class LocationService {
                 lng = jsonObject.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
             }
 
-//            System.out.println(address);
             return new SaveDTO(lat, lng, strings[1]);
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,9 +83,9 @@ public class LocationService {
     }
 
     // 실제 사용 서비스
-    public List<ResponseDTO> getInfo(String city, String region) {
+    public List<ResponseDTO> getInfo(String city, String region) throws Exception {
         List<Location> locations = locationRepository.findAllByCityAndRegion(city, region)
-                .orElseThrow(() -> new RuntimeException("잘못된 요청"));
+                .orElseThrow(() -> new LocationException("잘못된 요청"));
 
         List<ResponseDTO> responseDTOList = new ArrayList<>();
 
@@ -103,9 +102,9 @@ public class LocationService {
         return responseDTOList;
     }
 
-    public List<ResponseDTO> getSearch(String searchWord) {
+    public List<ResponseDTO> getSearch(String searchWord) throws Exception {
         List<Location> locationList = locationRepository.findAllByNameContaining(searchWord)
-                .orElseThrow(() -> new RuntimeException("검색 실패"));
+                .orElseThrow(() -> new LocationException("검색 실패"));
         List<ResponseDTO> searchList = new ArrayList<>();
 
         for (Location location : locationList) {
@@ -120,8 +119,8 @@ public class LocationService {
         return searchList;
     }
 
-    public void changeSupport(String name, String address) {
-        Location location = locationRepository.findByNameAndAddress(name, address)
+    public void changeSupport(ChangeDTO dto) {
+        Location location = locationRepository.findByNameAndAddress(dto.getName(), dto.getAddress())
                 .orElse(null);
 
         if (location != null)
