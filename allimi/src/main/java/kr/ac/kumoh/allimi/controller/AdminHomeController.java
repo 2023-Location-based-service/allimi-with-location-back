@@ -7,6 +7,7 @@ import kr.ac.kumoh.allimi.dto.nhresident.NHResidentResponse;
 import kr.ac.kumoh.allimi.exception.FacilityException;
 import kr.ac.kumoh.allimi.exception.user.UserException;
 import kr.ac.kumoh.allimi.service.FacilityService;
+import kr.ac.kumoh.allimi.service.LocationService;
 import kr.ac.kumoh.allimi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,7 @@ import java.util.List;
 public class AdminHomeController {
   private final UserService userService;
   private final FacilityService facilityService;
+  private final LocationService locationService;
 
   @GetMapping("/admin")
   public String home() {
@@ -115,6 +117,8 @@ public class AdminHomeController {
       if (facilityId == null)
           throw new FacilityException("AdminHomeController 시설 삭제: facility_id가 null");
 
+      FacilityInfoDto info = facilityService.getInfo(facilityId);
+      locationService.changeSupport(info.getName(), info.getAddress(), false);
       facilityService.deleteFacility(facilityId);
 
       return "redirect:/admin/facilities";
