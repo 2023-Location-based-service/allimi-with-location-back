@@ -103,7 +103,7 @@ public class LocationService {
     }
 
     public List<ResponseDTO> getSearch(String searchWord) throws Exception {
-        List<Location> locationList = locationRepository.findAllByNameContaining(searchWord)
+        List<Location> locationList = locationRepository.findAllByNameContainingOrAddressContaining(searchWord, searchWord)
                 .orElseThrow(() -> new LocationException("검색 실패"));
         List<ResponseDTO> searchList = new ArrayList<>();
 
