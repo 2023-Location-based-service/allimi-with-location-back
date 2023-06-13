@@ -46,6 +46,50 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
                         ├─controller<br/>
                         ├─domain<br/>
                         └─service<br/>
+```
+
+├─main
+│  ├─generated
+│  ├─java
+│  │  └─kr
+│  │      └─ac
+│  │          └─kumoh
+│  │              └─allimi
+│  │                  ├─controller
+│  │                  │  └─response
+│  │                  ├─domain
+│  │                  │  └─func
+│  │                  ├─dto
+│  │                  │  ├─admin
+│  │                  │  ├─facility
+│  │                  │  ├─ids
+│  │                  │  ├─invitation
+│  │                  │  ├─letter
+│  │                  │  ├─nhresident
+│  │                  │  ├─schedule
+│  │                  │  └─visit
+│  │                  ├─exception
+│  │                  │  └─user
+│  │                  ├─repository
+│  │                  ├─s3
+│  │                  └─service
+│  └─resources
+│      ├─static
+│      │  ├─css
+│      │  └─js
+│      └─templates
+│          └─fragments
+└─test
+    └─java
+        └─kr
+            └─ac
+                └─kumoh
+                    └─allimi
+                        ├─controller
+                        ├─domain
+                        └─service
+
+```
 
 ### main/java 패키지
 #### controller
