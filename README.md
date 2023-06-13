@@ -17,6 +17,36 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 
 
 ## 디렉터리 구조
+├─main
+│  ├─generated
+│  ├─java
+│  │  └─kr
+│  │      └─ac
+│  │          └─kumoh
+│  │              └─allimi
+│  │                  ├─controller
+│  │                  ├─domain
+│  │                  ├─dto
+│  │                  ├─exception
+│  │                  ├─repository
+│  │                  ├─s3
+│  │                  └─service
+│  └─resources
+│      ├─static
+│      │  ├─css
+│      │  └─js
+│      └─templates
+│          └─fragments
+└─test
+    └─java
+        └─kr
+            └─ac
+                └─kumoh
+                    └─allimi
+                        ├─controller
+                        ├─domain
+                        └─service
+
 ### main/java 패키지
 #### controller
 - 매핑된 url에 해당하는 요청을 받는다.
