@@ -21,17 +21,15 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 ├─main
 │  ├─generated
 │  ├─java
-│  │  └─kr
-│  │      └─ac
-│  │          └─kumoh
-│  │              └─allimi
-│  │                  ├─controller
-│  │                  ├─domain
-│  │                  ├─dto
-│  │                  ├─exception
-│  │                  ├─repository
-│  │                  ├─s3
-│  │                  └─service
+│  │  └─kr.ac.kumoh
+│  │      └─allimi
+│  │          ├─controller
+│  │          ├─domain
+│  │          ├─dto
+│  │          ├─exception
+│  │          ├─repository
+│  │          ├─s3
+│  │          └─service
 │  └─resources
 │      ├─static
 │      │  ├─css
