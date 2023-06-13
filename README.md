@@ -17,37 +17,7 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 
 
 ## 디렉터리 구조
-├─main<br/>
-│  ├─generated<br/>
-│  ├─java<br/>
-│  │  └─kr<br/>
-│  │      └─ac<br/>
-│  │          └─kumoh<br/>
-│  │              └─allimi<br/>
-│  │                  ├─controller<br/>
-│  │                  ├─domain<br/>
-│  │                  ├─dto<br/>
-│  │                  ├─exception<br/>
-│  │                  ├─repository<br/>
-│  │                  ├─s3<br/>
-│  │                  └─service<br/>
-│  └─resources<br/>
-│      ├─static<br/>
-│      │  ├─css<br/>
-│      │  └─js<br/>
-│      └─templates<br/>
-│          └─fragments<br/>
-└─test<br/>
-    └─java<br/>
-        └─kr<br/>
-            └─ac<br/>
-                └─kumoh<br/>
-                    └─allimi<br/>
-                        ├─controller<br/>
-                        ├─domain<br/>
-                        └─service<br/>
 ```
-
 ├─main
 │  ├─generated
 │  ├─java
@@ -56,20 +26,9 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 │  │          └─kumoh
 │  │              └─allimi
 │  │                  ├─controller
-│  │                  │  └─response
 │  │                  ├─domain
-│  │                  │  └─func
 │  │                  ├─dto
-│  │                  │  ├─admin
-│  │                  │  ├─facility
-│  │                  │  ├─ids
-│  │                  │  ├─invitation
-│  │                  │  ├─letter
-│  │                  │  ├─nhresident
-│  │                  │  ├─schedule
-│  │                  │  └─visit
 │  │                  ├─exception
-│  │                  │  └─user
 │  │                  ├─repository
 │  │                  ├─s3
 │  │                  └─service
@@ -81,14 +40,11 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 │          └─fragments
 └─test
     └─java
-        └─kr
-            └─ac
-                └─kumoh
-                    └─allimi
-                        ├─controller
-                        ├─domain
-                        └─service
-
+        └─kr.ac.kumoh
+            └─allimi
+                ├─controller
+                ├─domain
+                └─service
 ```
 
 ### main/java 패키지
