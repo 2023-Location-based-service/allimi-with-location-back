@@ -9,6 +9,9 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 - 요양원 등록 기능 수정
 <br/><br/>
 
+
+## 서비스 사용 영상
+[![Video Label](https://youtu.be/QbvObXaFJps/0.jpg)](https://youtu.be/QbvObXaFJps)
 ## 개요
 ### 목적
 
