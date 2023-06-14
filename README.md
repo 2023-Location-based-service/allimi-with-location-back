@@ -11,7 +11,12 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 
 
 ## 서비스 사용 영상
-[![Thumbnail](https://github.com/2023-Location-based-service/allimi-with-location-back/assets/78083320/304a1208-6294-417c-994f-44dec732797a)](https://youtu.be/QbvObXaFJps)
+<div align="center">
+    
+[![Video Label](http://img.youtube.com/vi/QbvObXaFJps/0.jpg)](https://youtu.be/QbvObXaFJps)
+    
+</div>
+
 
 ## 개요
 ### 목적
