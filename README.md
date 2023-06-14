@@ -11,7 +11,7 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 
 
 ## 서비스 사용 영상
-[![Video Label](https://youtu.be/QbvObXaFJps/0.jpg)](https://youtu.be/QbvObXaFJps)
+[![Video Label](https://img.youtu.be/vi/QbvObXaFJps/0.jpg)](https://youtu.be/QbvObXaFJps)
 ## 개요
 ### 목적
 
