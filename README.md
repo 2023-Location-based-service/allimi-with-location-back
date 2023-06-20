@@ -5,10 +5,18 @@
 https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
 
 ## 기존 프로젝트와 다른점
-- 요양원 둘러보기 기능 추가
-- 요양원 등록 기능 수정
-<br/><br/>
-
+### 요양원 둘러보기
+- 요양원 알리미 서비스를 지원하는 요양원 목록을 확인할 수 있습니다.
+  
+### 요양원 등록하기
+- 시설장이 요양원을 등록하는 경우, 요양원을 쉽게 검색할 수 있습니다.
+- 현재 위치한 지역을 기준으로 요양원 정보를 지도와 목록을 통해 확인할 수 있습니다.
+- 요양원의 이름과 전화번호, 그리고 지역으로 요양원을 편리하게 검색할 수 있습니다.
+  
+#### 요양원 둘러보기와 등록하기의 공통 기능
+- 현재 위치한 지역을 기준으로 요양원 정보를 지도와 목록을 통해 확인할 수 있습니다.
+- 요양원의 이름과 전화번호, 그리고 지역으로 요양원을 편리하게 검색할 수 있습니다.
+<br/>
 
 ## 서비스 사용 영상
 <div align="center">
@@ -17,13 +25,16 @@ https://github.com/2023-CreativeDesignProject-clover/care-allimi-back <br/>
     
 </div>
 
-
 ## 개요
 ### 목적
+요양원에서의 요양보호사와 보호자 간 의사소통 및 상호작용 향상을 목적으로 한다.
 
-
-### 사용 언어
-
+### 개발 언어 및 API
+- Frontend: Dart
+- Backend: Java
+  - Spring Boot 3.0.5
+- DB: Mysql
+- API: Google Maps API, Geocoding API
 
 ## 디렉터리 구조
 ```
